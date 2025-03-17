@@ -27,7 +27,7 @@ const PORT=8000
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-  origin: 'https://himanshu.futuretouch.org',
+  origin: ['https://himanshu.futuretouch.org', 'http://localhost:3000'], // Add localhost
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE"],
 }));
