@@ -71,6 +71,10 @@ app.use("/api",user)
 app.use("/api/admin",admin)
 
 
+app.use((req, res, next) => {
+  res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
+  next();
+});
 
 // app.use('/api/suggestions', );
 // app.use('/api/user-messages', userMessageRoutes);
