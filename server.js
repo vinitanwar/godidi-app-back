@@ -27,11 +27,11 @@ const PORT=8000
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: "http://localhost:3000", 
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE"], 
+  origin: '*', // Allows all origins
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE"],
+}));
 
-}))
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
