@@ -11,6 +11,11 @@ import mongoose from "mongoose";
         required:true,
         trim:true
     },
+    email:{
+      type:String,
+      required:true,
+      trim:true
+  },
     gender:{
       type:String,
       required:true,

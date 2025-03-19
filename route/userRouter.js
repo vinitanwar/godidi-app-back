@@ -1,21 +1,17 @@
 import express from "express";
-import { addUser,loginadmin,getuser ,signupadmin,newuser} from "../controller/userController.js";
+import { addUser,loginadmin } from "../controller/userController.js";
 import { verifyUser } from "../middlewere/adminMiddlewere.js";
+import { sendMessage } from "../controller/ChatController.js";
 
 const router = express.Router();
 
 
 router.post("/adminlogin",loginadmin)
-
-router.get("/user-ss",loginadmin)
-
-router.post("/adminsignup",signupadmin)
-
 router.post("/userSignup",addUser)
 router.get("/getuser",verifyUser)
+router.post("/sendmessage",sendMessage)
 
 
 
-router.get("/getuser",newuser)
 
 export default router;

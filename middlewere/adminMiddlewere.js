@@ -9,7 +9,7 @@ export const adminMidlewere=async(req,res,next)=>{
     try {
          const token = req.cookies.godiditokenadmin;
                 if (!token) {
-                    return res.status(401).json({
+                    return res.status(201).json({
                         success: false, message: "No token provided" 
                     });
                 }
@@ -27,11 +27,13 @@ const {id}=decoded(token)
             success:false,message:"not token" })
         }
 
+        req.senderType="admin"
+
             next()
 
 
     } catch (error) {
-        return res.status(500).json({
+        return res.status(200).json({
             success:false,message:error.message }) 
     }
 }
@@ -89,7 +91,7 @@ const {id}=decoded(token)
 
       const admin= await User.findOne({_id:id});
         const mssage= await Message.findOne({userId:admin._id})
-      if(!admin){
+      if(!admin || !mssage){
         return res.status(200).json({
             success:false,message:"not token" })
         }
@@ -100,6 +102,6 @@ const {id}=decoded(token)
 
     } catch (error) {
         return res.status(200).json({
-            success:false,message:error.message }) 
+            success:false,message:error.message}) 
     }
 }
