@@ -18,7 +18,7 @@ const server= http.createServer(app)
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: "http://localhost:3000", 
+    origin: "https://himanshu.futuretouch.org", 
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"], 
 
@@ -47,7 +47,7 @@ app.get("/",async(req,res)=>{
 
 const io = new Server(server, {
     cors: {
-        origin: "*",
+        origin: "https://himanshu.futuretouch.org",
         methods: ["GET", "POST"],
     },
 });
