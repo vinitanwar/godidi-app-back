@@ -100,6 +100,21 @@ if(!message){
         return res.status(301).json({message:error.message,success:false})
     }
 }
+
+export const logoutuser=async(req,res)=>{
+    try {
+        return res.cookie("godiduser","", {
+            path: "/",
+            httpOnly: true, 
+            secure: true,
+            sameSite: "None", 
+            expires: new Date(Date.now() ),
+        }).status(201).json({success:true,message:" user logout "})
+        
+    } catch (error) {
+        
+    }
+}
  
 
 

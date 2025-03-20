@@ -17,13 +17,13 @@ if(!id){
     return res.status(301).json({message:"userNotfound",success:false})
 
 }
-
-const user = await User.findById({_id:id});
+ 
+const user = await User.findById({_id:id}); 
 if(!user){
     return res.status(301).json({message:"userNotfound",success:false})}
 
 req.senderType="user";
-
+req.user=user;
     next()
 
 
