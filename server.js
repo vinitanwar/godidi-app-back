@@ -47,7 +47,7 @@ app.get("/",async(req,res)=>{
 
 const io = new Server(server, {
     cors: {
-        origin: "https://himanshu.futuretouch.org",
+      origin: ["http://localhost:3000", "https://himanshu.futuretouch.org","http://145.223.22.236:3005"], 
         methods: ["GET", "POST"],
     },
 });
