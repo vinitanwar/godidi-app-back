@@ -18,7 +18,7 @@ const server= http.createServer(app)
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: "http://localhost:3000", 
+    origin:  ["http://45.223.22.236:3005"], 
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"], 
 
@@ -47,7 +47,7 @@ app.get("/",async(req,res)=>{
 
 const io = new Server(server, {
     cors: {
-        origin: "*",
+   origin:  ["http://45.223.22.236:3005"], 
         methods: ["GET", "POST"],
     },
 });
