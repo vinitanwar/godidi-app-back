@@ -19,7 +19,7 @@ app.use(express.json())
 app.use(cookieParser())
 
 app.use(cors({
-    origin: ["http://localhost:3000", "https://himanshu.futuretouch.org"], 
+    origin: ["http://localhost:3000", "https://himanshu.futuretouch.org","http://145.223.22.236:3005"], 
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"]
 }));
