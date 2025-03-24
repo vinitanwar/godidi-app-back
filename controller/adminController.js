@@ -111,7 +111,7 @@ export const allservicesQna=async(req,res)=>{
     try {
          const {service}=req.params;
 
-         const findqna= await QNA.find({service})
+         const findqna= await QNA.find({service}).sort({ sequence: 1 });
          if(!findqna){
             return res.status(200).json({ success: false, message: "qna not found" });
 
@@ -180,6 +180,18 @@ return res.status(201).json({ success: true, message: "Service QNA added", data:
     } catch (error) {
         return res.status(200).json({success:false,message:error.message})
 
+    }
+}
+
+export const GEtAllnubers=async(req,res)=>{
+    try {
+
+        const service= await Service.find()
+const user= await User.find()
+        return res.status(200).json({service:service.length,user:user.length})
+        
+    } catch (error) {
+        
     }
 }
 
